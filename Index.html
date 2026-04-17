@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidad — Valorito</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      max-width: 780px;
+      margin: 40px auto;
+      padding: 0 20px;
+      line-height: 1.65;
+      color: #1f2937;
+      background: #f9fafb;
+    }
+    h1 { color: #111827; border-bottom: 2px solid #dc2626; padding-bottom: 10px; }
+    h2 { color: #dc2626; margin-top: 34px; }
+    h3 { color: #374151; }
+    code {
+      background: #e5e7eb;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+    .meta {
+      color: #6b7280;
+      font-size: 0.9em;
+      margin-bottom: 28px;
+    }
+    ul li { margin-bottom: 6px; }
+    .lang-toggle {
+      margin-bottom: 20px;
+    }
+    .lang-toggle a {
+      color: #dc2626;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <a href="#es">Español</a> · <a href="#en">English</a>
+</div>
+
+<h1 id="es">Política de Privacidad — Valorito</h1>
+<p class="meta">Última actualización: 17 de abril de 2026 · Versión 2.0 (build 15)</p>
+
+<p>
+  <strong>Valorito</strong> es una app mobile no oficial, hecha por fans, con información de
+  VALORANT (voice lines, info de parche, mapas, rangos, estadísticas y perfil del jugador).
+  Esta política explica qué datos maneja la app y con qué propósito.
+</p>
+
+<h2>1. Datos que recolecta la app</h2>
+
+<p>Valorito funciona casi enteramente sin datos personales. Los únicos datos que la app
+maneja son los que <strong>vos ingresás voluntariamente</strong> al vincular tu cuenta
+en el tab "Perfil":</p>
+
+<ul>
+  <li><strong>Riot ID (nombre y tag)</strong> — ej: <code>Facu#ARG1</code></li>
+  <li><strong>Región seleccionada</strong> — LATAM, NA, EU, AP, KR o BR</li>
+</ul>
+
+<p>Si <strong>no</strong> vinculás una cuenta en el tab Perfil, la app no envía
+ningún dato identificable.</p>
+
+<h2>2. Cómo se usan esos datos</h2>
+
+<p>Cuando vinculás tu Riot ID, la app envía esos datos a través de un proxy propio
+(<strong>Cloudflare Workers</strong>) que consulta la
+<strong>API no oficial de Henrik</strong> para obtener:</p>
+
+<ul>
+  <li>Tu rango competitivo actual y RR</li>
+  <li>Imagen del card de jugador y nivel de cuenta</li>
+  <li>Historial de las últimas 10 partidas competitivas y sus estadísticas</li>
+</ul>
+
+<p>El flujo es: <code>App → Cloudflare Worker (proxy propio) → API de Henrik → Riot Games</code>.</p>
+
+<h2>3. Almacenamiento</h2>
+
+<h3>En tu teléfono</h3>
+<p>Tu Riot ID, región y los datos cacheados de tu perfil y partidas se guardan
+<strong>solo localmente</strong> en tu dispositivo (AsyncStorage). No se suben a
+ningún servidor nuestro.</p>
+
+<h3>En el proxy de Cloudflare</h3>
+<p>El proxy cachea respuestas por tiempos cortos para reducir la cantidad de llamadas a Henrik:</p>
+<ul>
+  <li>Datos de cuenta: 1 hora</li>
+  <li>MMR / rango: 2 minutos</li>
+  <li>Historial de partidas: 5 minutos</li>
+</ul>
+<p>El cache es efímero (se vacía automáticamente) y no guarda logs identificables
+de usuarios individuales.</p>
+
+<h3>En Henrik's API</h3>
+<p>La API de Henrik procesa la consulta en tiempo real. Su política de privacidad
+propia está disponible en <a href="https://docs.henrikdev.xyz/">docs.henrikdev.xyz</a>.
+Valorito no tiene control sobre esa política — al usar el tab Perfil aceptás
+implícitamente que tu consulta pasa por Henrik's API.</p>
+
+<h2>4. Tus derechos y cómo eliminar tus datos</h2>
+
+<p>En cualquier momento podés:</p>
+<ul>
+  <li><strong>Desvincular tu cuenta:</strong> abrí el tab "Perfil" → botón
+  "Cambiar cuenta" → "Desvincular". Esto borra de tu teléfono todos los datos
+  relacionados a tu Riot ID.</li>
+  <li><strong>Borrar todos los datos de la app:</strong> desde la configuración
+  de Android (Apps → Valorito → Almacenamiento → Borrar datos).</li>
+  <li><strong>Desinstalar la app:</strong> elimina todos los datos locales.</li>
+</ul>
+
+<h2>5. Datos no recolectados</h2>
+
+<p>Valorito <strong>no</strong> recolecta:</p>
+<ul>
+  <li>Correo electrónico ni contraseñas</li>
+  <li>Contactos, ubicación, cámara, micrófono ni archivos del dispositivo</li>
+  <li>Identificadores persistentes de publicidad (salvo los que AdMob maneja por su cuenta — ver sección 7)</li>
+  <li>Cualquier dato que no sea el Riot ID que vos mismo ingresás</li>
+</ul>
+
+<h2>6. Audios y contenido del juego</h2>
+
+<p>Las voice lines, imágenes de agentes, mapas, rangos y datos de parche
+provienen de fuentes públicas (<a href="https://valorant-api.com">valorant-api.com</a>,
+<a href="https://metabot.gg">metabot.gg</a>). VALORANT es una marca registrada de Riot Games, Inc.
+Esta app no está afiliada, patrocinada ni respaldada por Riot Games.</p>
+
+<h2>7. Publicidad (AdMob)</h2>
+
+<p>La app muestra anuncios a través de <strong>Google AdMob</strong>. AdMob puede
+recolectar identificadores publicitarios anónimos (AAID) según su propia política.
+La política de Google está en
+<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
+Podés resetear tu AAID o limitar ads personalizados desde la configuración de
+Android (Configuración → Google → Anuncios).</p>
+
+<h2>8. Menores</h2>
+<p>Valorito no está dirigida a menores de 13 años.</p>
+
+<h2>9. Cambios en esta política</h2>
+<p>Si cambiamos esta política, vamos a actualizar la fecha "Última actualización"
+de arriba y publicar la nueva versión acá. Cambios significativos se anunciarán
+en la descripción de la app en Google Play.</p>
+
+<h2>10. Contacto</h2>
+<p>Dudas, reclamos o pedidos de eliminación:
+<a href="mailto:facuyavicoli@hotmail.com">facuyavicoli@hotmail.com</a></p>
+
+<hr>
+
+<h1 id="en">Privacy Policy — Valorito</h1>
+<p class="meta">Last updated: April 17, 2026 · Version 2.0 (build 15)</p>
+
+<p><strong>Valorito</strong> is an unofficial, fan-made mobile app featuring VALORANT
+content (voice lines, patch info, maps, ranks, stats, and player profile).
+This policy describes what data the app handles and for what purpose.</p>
+
+<h2>1. Data the app collects</h2>
+<p>Valorito runs mostly without any personal data. The only data the app handles
+is what <strong>you voluntarily provide</strong> when linking your account in the
+"Profile" tab:</p>
+<ul>
+  <li><strong>Riot ID (name and tag)</strong> — e.g. <code>Facu#ARG1</code></li>
+  <li><strong>Selected region</strong> — LATAM, NA, EU, AP, KR or BR</li>
+</ul>
+<p>If you <strong>don't</strong> link an account in the Profile tab, the app
+doesn't send any identifiable data.</p>
+
+<h2>2. How that data is used</h2>
+<p>When you link your Riot ID, the app sends those fields through our own proxy
+(<strong>Cloudflare Workers</strong>) that queries the
+<strong>unofficial Henrik API</strong> to retrieve:</p>
+<ul>
+  <li>Your current competitive rank and RR</li>
+  <li>Player card image and account level</li>
+  <li>History of your last 10 competitive matches and their stats</li>
+</ul>
+<p>Flow: <code>App → Cloudflare Worker (our proxy) → Henrik's API → Riot Games</code>.</p>
+
+<h2>3. Storage</h2>
+<h3>On your device</h3>
+<p>Your Riot ID, region, and cached profile/match data are stored
+<strong>only locally</strong> on your device (AsyncStorage). Nothing is uploaded
+to a server of ours.</p>
+
+<h3>On the Cloudflare proxy</h3>
+<p>The proxy caches responses for short periods to reduce calls to Henrik:</p>
+<ul>
+  <li>Account data: 1 hour</li>
+  <li>MMR / rank: 2 minutes</li>
+  <li>Match history: 5 minutes</li>
+</ul>
+<p>Cache is ephemeral (auto-expires) and stores no user-identifiable logs.</p>
+
+<h3>On Henrik's API</h3>
+<p>Henrik's API processes the query in real time. Its own privacy policy is at
+<a href="https://docs.henrikdev.xyz/">docs.henrikdev.xyz</a>. Valorito has no
+control over that policy — by using the Profile tab you implicitly accept that
+your query goes through Henrik's API.</p>
+
+<h2>4. Your rights and how to delete your data</h2>
+<p>At any time you can:</p>
+<ul>
+  <li><strong>Unlink your account:</strong> open the "Profile" tab → "Change account"
+  button → "Unlink". This deletes all Riot-related data from your phone.</li>
+  <li><strong>Delete all app data:</strong> from Android settings
+  (Apps → Valorito → Storage → Clear data).</li>
+  <li><strong>Uninstall the app:</strong> removes all local data.</li>
+</ul>
+
+<h2>5. Data NOT collected</h2>
+<p>Valorito <strong>does not</strong> collect:</p>
+<ul>
+  <li>Email or passwords</li>
+  <li>Contacts, location, camera, microphone, or device files</li>
+  <li>Persistent advertising IDs (beyond what AdMob handles on its own — see section 7)</li>
+  <li>Any data other than the Riot ID you enter yourself</li>
+</ul>
+
+<h2>6. Game audio and content</h2>
+<p>Voice lines, agent artwork, maps, ranks, and patch data come from public sources
+(<a href="https://valorant-api.com">valorant-api.com</a>,
+<a href="https://metabot.gg">metabot.gg</a>). VALORANT is a trademark of Riot Games, Inc.
+This app is not affiliated with, sponsored, or endorsed by Riot Games.</p>
+
+<h2>7. Advertising (AdMob)</h2>
+<p>The app shows ads through <strong>Google AdMob</strong>. AdMob may collect
+anonymous advertising identifiers (AAID) as per its own policy at
+<a href="https://policies.google.com/privacy">policies.google.com/privacy</a>.
+You can reset your AAID or limit personalized ads from Android settings
+(Settings → Google → Ads).</p>
+
+<h2>8. Minors</h2>
+<p>Valorito is not directed at children under 13.</p>
+
+<h2>9. Changes to this policy</h2>
+<p>If this policy changes, we'll update the "Last updated" date above and publish
+the new version here. Significant changes will be announced in the app's Google
+Play description.</p>
+
+<h2>10. Contact</h2>
+<p>Questions, complaints, or deletion requests:
+<a href="mailto:facuyavicoli@hotmail.com">facuyavicoli@hotmail.com</a></p>
+
+</body>
+</html>
